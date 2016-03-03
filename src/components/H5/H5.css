@@ -1,0 +1,7 @@
+
+.h5 {
+  @if $initial == true {
+     all: initial;
+  }
+  display: block;
+}

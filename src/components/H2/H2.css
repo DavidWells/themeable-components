@@ -1,0 +1,10 @@
+/* Default styles unless overriden by custom file */
+.h2 {
+  display: block;
+  &:before {
+
+  }
+  &:after {
+
+  }
+}

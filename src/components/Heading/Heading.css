@@ -1,0 +1,6 @@
+
+.heading {
+  @if $initial == true {
+     all: initial;
+  }
+}

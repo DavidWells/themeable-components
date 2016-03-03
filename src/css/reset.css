@@ -1,0 +1,5 @@
+.component {
+  @if $reset == true {
+     all: initial;
+  }
+}

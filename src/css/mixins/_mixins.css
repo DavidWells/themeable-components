@@ -1,0 +1,21 @@
+@define-mixin icon $name {
+    padding-left: 16px;
+    &::after {
+        content: "";
+        background-url: url(/icons/$(name).png);
+    }
+}
+
+@define-mixin buttonCSS {
+  margin-left: 16px;
+  .span {
+    color: purple;
+  }
+}
+
+@define-mixin H1Overrides {
+  margin-left: 26px;
+  .span {
+    color: purple !important;
+  }
+}

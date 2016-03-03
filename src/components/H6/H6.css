@@ -1,0 +1,13 @@
+/* Default styles unless overriden by custom file */
+.h6 {
+  display: block;
+  &:before {
+
+  }
+  &:after {
+
+  }
+  .nested {
+    color:blue
+  }
+}

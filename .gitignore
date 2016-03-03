@@ -1,0 +1,9 @@
+dist
+lib
+docs
+node_modules
+custom
+npm-debug.log
+.DS_Store
+todo.md
+.componentrc.json

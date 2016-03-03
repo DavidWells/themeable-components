@@ -1,0 +1,8 @@
+
+.p {
+  @if $initial == true {
+     all: initial;
+     color:blue !important;
+  }
+  display: block;
+}
