@@ -1,13 +1,16 @@
 {
-  "name": "components",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ui-base",
+  "version": "0.0.1",
+  "description": "Base set of React Components",
   "main": "src/index.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Wells",
+  "dependencies": {
+    "react-contenteditable": "^1.1.0"
+  },
   "peerDependencies": {
     "classnames": "^2.2.0",
     "react": "^0.14",
@@ -77,8 +80,5 @@
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
-  },
-  "dependencies": {
-    "react-contenteditable": "^1.1.0"
   }
 }
