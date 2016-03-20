@@ -1,2 +1,2 @@
-/* default config */
+/* default P config */
 export default null

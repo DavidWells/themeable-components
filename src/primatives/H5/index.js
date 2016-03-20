@@ -1,6 +1,10 @@
-import createFunctionalComponent from '../createFunctionalComponent'
-import config from './H5.config'
+/* <H5> primative component */
+import functionalCompontent from './H5.functional'
+import classCompontent from './H5.class'
 
-const H5 = createFunctionalComponent('h5', config)
-export default H5
-export { H5 }
+export {
+  functionalCompontent as H5,
+  classCompontent as H5Class
+}
+/* default H5 component is functional */
+export default functionalCompontent

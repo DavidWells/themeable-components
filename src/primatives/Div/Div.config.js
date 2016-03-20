@@ -1,2 +1,2 @@
-/* default config */
+/* default Div config */
 export default null

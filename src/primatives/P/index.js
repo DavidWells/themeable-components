@@ -1,6 +1,10 @@
-import createFunctionalComponent from '../createFunctionalComponent'
-import config from './P.config'
+/* <P> primative component */
+import functionalCompontent from './P.functional'
+import classCompontent from './P.class'
 
-const P = createFunctionalComponent('p', config)
-export default P
-export { P }
+export {
+  functionalCompontent as P,
+  classCompontent as PClass
+}
+/* default P component is functional */
+export default functionalCompontent

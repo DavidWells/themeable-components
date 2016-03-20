@@ -1,4 +1,4 @@
-/* {{name}} primative component */
+/* <{{name}}> primative component */
 import functionalCompontent from './{{name}}.functional'
 import classCompontent from './{{name}}.class'
 

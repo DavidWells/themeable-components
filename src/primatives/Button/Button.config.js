@@ -1,2 +1,2 @@
-/* default config */
+/* default Button config */
 export default null

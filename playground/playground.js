@@ -16,6 +16,10 @@ import ButtonTest from '../src/primatives/Button'
 import { AClass as A } from '../src/primatives/A'
 import Link from '../src/primatives/A'
 
+import Table from '../src/primatives/Table'
+import Tr from '../src/primatives/Tr'
+import Td from '../src/primatives/Td'
+
 class Test extends React.Component {
   render () {
     console.log('this', this.props)
@@ -59,6 +63,18 @@ class App extends React.Component {
     var renderTags = null;
     return (
       <Div>
+          <Table>
+            <Tr>
+              <Td>Jill</Td>
+              <Td>SmiTh</Td>
+              <Td>50</Td>
+            </Tr>
+            <Tr>
+              <Td>Eve</Td>
+              <Td>Jackson</Td>
+              <Td>94</Td>
+            </Tr>
+          </Table>
           <TestComponent>hey</TestComponent>
           <A ref="yay" href="link">Tesxxxt</A>
           <Link>hehehehe</Link>

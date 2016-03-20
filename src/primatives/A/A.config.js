@@ -1,2 +1,2 @@
-/* default config */
+/* default A config */
 export default null

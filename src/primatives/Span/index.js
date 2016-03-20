@@ -1,6 +1,10 @@
-import createFunctionalComponent from '../createFunctionalComponent'
-import config from './Span.config'
-const Span = createFunctionalComponent('span', config)
+/* <Span> primative component */
+import functionalCompontent from './Span.functional'
+import classCompontent from './Span.class'
 
-export default Span
-export { Span }
+export {
+  functionalCompontent as Span,
+  classCompontent as SpanClass
+}
+/* default Span component is functional */
+export default functionalCompontent

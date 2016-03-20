@@ -1,6 +1,10 @@
-import createFunctionalComponent from '../createFunctionalComponent'
-import config from './Div.config'
+/* <Div> primative component */
+import functionalCompontent from './Div.functional'
+import classCompontent from './Div.class'
 
-const Div = createFunctionalComponent('div', config)
-export default Div
-export { Div }
+export {
+  functionalCompontent as Div,
+  classCompontent as DivClass
+}
+/* default Div component is functional */
+export default functionalCompontent

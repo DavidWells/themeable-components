@@ -1,2 +1,2 @@
-/* default config */
+/* default H1 config */
 export default null

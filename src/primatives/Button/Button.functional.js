@@ -1,4 +1,4 @@
-import createFunctionalComponent from '../createFunctionalComponent'
+import createFunctionalComponent from '../../utils/createFunctionalComponent'
 import config from './Button.config'
 
 const Button = createFunctionalComponent('Button', config)

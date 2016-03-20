@@ -1,6 +1,10 @@
-import createFunctionalComponent from '../createFunctionalComponent'
-import config from './H3.config'
+/* <H3> primative component */
+import functionalCompontent from './H3.functional'
+import classCompontent from './H3.class'
 
-const H3 = createFunctionalComponent('h3', config)
-export default H3
-export { H3 }
+export {
+  functionalCompontent as H3,
+  classCompontent as H3Class
+}
+/* default H3 component is functional */
+export default functionalCompontent

@@ -1,4 +1,4 @@
-import createFunctionalComponent from '../createFunctionalComponent'
+import createFunctionalComponent from '../../utils/createFunctionalComponent'
 import config from './A.config'
 
 const A = createFunctionalComponent('A', config)
