@@ -12,7 +12,12 @@ const propTypes = {
   ]),
   children: PropTypes.any,
   /* Custom element to override. Not advised for use except for special occasions  */
-  customComponent: PropTypes.any
+  customComponent: PropTypes.any,
+  // customProp: function(props, propName, componentName) {
+  //    if (!/matchme/.test(props[propName])) {
+  //      return new Error('Validation failed!' + componentName);
+  //    }
+  // }
 }
 
 export default propTypes

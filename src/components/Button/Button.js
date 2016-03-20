@@ -1,6 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
+import ATag from '../../primatives/A'
+import ButtonPrimative from '../../primatives/Button'
+import { ButtonClass } from '../../primatives/Button'
 import makeComponent from 'utils/generate-element'
-import composeClassName from '../../utils/create-classnames'
+import composeClassName from 'utils/new-create-classnames'
 import style from 'Button.css'
 import config from 'Button.config'
 
@@ -17,33 +21,49 @@ class Button extends Component {
     onMouseUp: PropTypes.func
   };
 
-  handleMouseUp = (event) => {
-    this.refs.button.blur()
-    console.log('mouseup')
-    if (this.props.onMouseUp) this.props.onMouseUp(event)
-  };
+  constructor (props, context) {
+    super(props, context)
+    this.node = null
+  }
+  componentDidMount () {
+    /* find node once */
 
-  handleClick = (event) => {
-    this.refs.button.blur()
+    this.node = ReactDOM.findDOMNode(this)
+  }
+
+  handleMouseUp (event) {
+    this.node.blur()
+    if (this.props.onMouseUp) this.props.onMouseUp(event)
+  }
+
+  handleClick (event) {
+    //this.refs.button.blur()
+    this.node.blur()
     console.log('clicke')
     if (this.props.onClick) this.props.onClick(event)
-  };
+  }
 
-  handleMouseLeave = (event) => {
-    this.refs.button.blur()
+  handleMouseLeave (event){
+    console.log(this.refs)
+    //this.refs.button.blur()
+    this.node.blur()
     console.log('mouseleabe')
     if (this.props.onMouseLeave) this.props.onMouseLeave(event)
-  };
+  }
 
   render () {
     const { className, children, href, icon, inverse, label, ...others} = this.props
-    const element = (href) ? 'a' : 'button'
+    const element = (href) ? ATag : ButtonClass
+    // console.log(this.props)
+    // console.log(ButtonTag)
+    console.log('ButtonButton', ButtonClass)
+
     const propBasedClasses = {
       inverse: inverse
     }
     const classes = composeClassName(
       'button', /* component name */
-      style, /* localized styles */
+      style.button, /* localized styles */
       className, /* user specified classNames */
       propBasedClasses /* prop based classnames */
     )
@@ -51,22 +71,22 @@ class Button extends Component {
     const props = {
       ...others,
       href,
-      ref: 'button',
-      children: this.props.children,
+      //ref: 'button',
+      children: children,
       className: classes,
       disabled: this.props.disabled,
-      onMouseUp: this.handleMouseUp,
-      onMouseLeave: this.handleMouseLeave,
-      onClick: this.handleClick,
+      onMouseUp: this.handleMouseUp.bind(this),
+      onMouseLeave: this.handleMouseLeave.bind(this),
+      onClick: this.handleClick.bind(this),
       'data-react-component': 'button'
     }
     return makeComponent(
       element,
       props,
-      style,
       config
     )
   }
 }
+
 
 export default Button

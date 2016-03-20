@@ -8,11 +8,12 @@ var comonentConfigPath = path.resolve(stylePath);
 var webpack = require('webpack')
 var playgroundPath = path.join(__dirname, 'playground')
 var srcPath = path.join(__dirname, 'src')
+var DEBUG = true
 var aliases = {
   'config': './config',
   'utils': path.join(__dirname, '/src/utils'),
-  //'primatives': path.join(__dirname, '/src/primatives'),
-  'dom/Div': path.join(__dirname, '/src/dom/Span')
+  'primatives': path.join(__dirname, '/src/primatives'),
+  //'primatives/Div': path.join(__dirname, '/src/primatives/Span')
 }
 
 //var IllustrationPlugin = require('react-component-illustrator-webpack')
@@ -101,7 +102,7 @@ module.exports = {
       'process.env.CSS_PREFIX': JSON.stringify(process.env.CSS_PREFIX || ''),
       'process.env.CSS_POSTFIX': JSON.stringify(process.env.CSS_POSTFIX || ''),
       'process.env.CSS_BASE_RESET': JSON.stringify(process.env.CSS_BASE_RESET || false),
-      __DEV__: false,
+      __DEV__: DEBUG,
       COMPONENT_CONFIG_PATH: JSON.stringify(comonentConfigPath),
       VERSION: JSON.stringify(pkg.version)
     })

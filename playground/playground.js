@@ -1,19 +1,23 @@
 import React, { PropTypes } from 'react'
 import Navigation from './Navigation'
+import TestComponent from '../src/components/TestComponent/TestComponent'
 import Button from '../src/components/Button'
-import P from '../src/components/P'
-import H2 from '../src/components/H2'
-import H1 from '../src/components/H1'
-import H5 from '../src/components/H5'
+import P from '../src/primatives/P'
+import H2 from '../src/primatives/H2'
+import H1 from '../src/primatives/H1'
 import Heading from '../src/components/Heading'
 import Card from '../src/components/Card'
 import TagList from '../src/tagList'
 import style from './test.css'
 import makeReactElement from 'utils/generate-element'
-
+import Div from 'primatives/Div'
+import Span from '../src/primatives/Span'
+import ButtonTest from '../src/primatives/Button'
+import { AClass as A } from '../src/primatives/A'
+import Link from '../src/primatives/A'
 
 class Test extends React.Component {
-  render() {
+  render () {
     console.log('this', this.props)
     return (
       <div {...this.props}>
@@ -54,12 +58,24 @@ class App extends React.Component {
     var test = (this.state.h1Clicked) ? Test : null
     var renderTags = null;
     return (
-      <div>
-          <Button debug inverse={true}>button</Button>
-          <Card>
+      <Div>
+          <TestComponent>hey</TestComponent>
+          <A ref="yay" href="link">Tesxxxt</A>
+          <Link>hehehehe</Link>
+          <ButtonTest>butoon clicker</ButtonTest>
+          <Div onClick={(e)=>{alert('chchch')}} className={true}>Testing div
+          </Div>
+          <Heading className="headinhhdh-one" size={1}>Heading 1</Heading>
+          <Heading size="2">Heading 2</Heading>
+          <H2>Heading 2 primative</H2>
+          <Span>Testing span</Span>
+          <H1>Test</H1>
+          <Button inverse={true}>button</Button>
+          <Card  className="hhhsnby dhhdhd sjjs">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae mauris arcu
           </Card>
-      </div>
+
+      </Div>
     )
   }
 }

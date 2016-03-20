@@ -1,6 +1,9 @@
 
 .heading {
-  @if $initial == true {
-     all: initial;
+  h1 {
+    @if $initial == true {
+       all: initial;
+    }
+    font-size: inherit;
   }
 }

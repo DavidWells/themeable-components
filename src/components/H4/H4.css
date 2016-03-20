@@ -1,7 +1,0 @@
-
-.h4 {
-  @if $initial == true {
-     all: initial;
-  }
-  display: block;
-}
