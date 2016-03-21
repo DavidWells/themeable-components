@@ -45,7 +45,7 @@ export default function makeComponent (element, props, config) {
     }
 
     if (props.debug) {
-      var debugName = props.componentName || element.name || element
+      var debugName = props['data-react-component'] || element.name || element
 
       showConfigOnDebug(debugName, COMPONENT_CONFIG_PATH, JSON.stringify(configuration, null, '\t'))
     }

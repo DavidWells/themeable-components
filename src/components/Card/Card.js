@@ -7,18 +7,18 @@ import config from 'Card.config'
 
 const name = 'Card'
 const Card = ({children, className, ...other}) => {
-  /* generate classNames */
+  const localizedCSS = styles[`${name}`] || styles[`${name.toLowerCase()}`]
   const classes = classNames(
-    name, /* component name */
-    styles[`${name}`] || styles[`${name.toLowerCase()}`], /* localized styles */
-    className /* user specified classNames */
+    name, /* Component name */
+    localizedCSS, /* Localized className */
+    className /* User specified classNames */
   )
   /* build props */
   const props = {
     ...other,
     children,
     className: classes,
-    componentName: name
+    'data-react-component': name
   }
   return makeComponent(Div, props, config)
 }

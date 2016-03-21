@@ -24,7 +24,7 @@ for (var i = 0; i < tagList.length; i++) {
 
 function makePrimativeComponent(name, runFinalCallback) {
   const vars = { name: name }
-  const inDir = path.join(__dirname, `../src/templates/primativeComponent`)
+  const inDir = path.join(__dirname, `../src/templates/primative`)
   const outDir = path.join(__dirname, `../src/primatives/${name}`)
 
   copyTemplate(inDir, outDir, vars, (err, createdFiles) => {
