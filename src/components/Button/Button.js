@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import APrimative from '../../primatives/A'
 import ButtonPrimative from '../../primatives/Button'
-import { ButtonClass } from '../../primatives/Button'
 import makeComponent from 'utils/generate-element'
 import classNames from 'utils/classNames'
 import styles from 'Button.css'
 import config from 'Button.config'
 
 const name = 'Button'
+
 class Button extends Component {
+
   static propTypes = {
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -23,7 +23,7 @@ class Button extends Component {
   };
 
   render () {
-    const { className, href, icon, inverse, label, ...others} = this.props
+    const { className, href, ...others} = this.props
     const element = (href) ? APrimative : ButtonPrimative
     const localizedCSS = styles[`${name}`] || styles[`${name.toLowerCase()}`]
 
