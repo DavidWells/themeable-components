@@ -44,4 +44,54 @@ Custom styles can be overridden via componentrc config by providing path
 * .componentrc must be read from consumers project
 * Component stamper + test stamper yeoman
 * Theme stamper - generate empty style sheets automatically. Work on alias to ignore empties
+
+Map postCSS to a RN stylesheet implementation with https://github.com/postcss/postcss-js
+
+```js
+import React, { StyleSheet, Text, View } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'right',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+export default class extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.ios.js
+        </Text>
+        <Text style={styles.instructions}>
+          Press Cmd+R to reload,{'\n'}
+          Cmd+Control+Z for dev menu
+        </Text>
+      </View>
+    );
+  }
+};
+
+```
+
 *
+
+Links
+How react native shims to web: https://github.com/defunctzombie/package-browser-field-spec
+- package.json in RN for aliases https://medium.com/@grabbou/a-cure-for-relative-requires-in-react-native-2b263cecf0f6#.2olqmg8qh

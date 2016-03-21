@@ -3,9 +3,11 @@ import ContentEditable from 'react-contenteditable'
 import Div from 'primatives/Div'
 import * as Headings from './heading-list'
 import makeComponent from 'utils/generate-element'
-import generateClassNames from '../../utils/new-create-classnames'
+import classNames from 'utils/classNames'
 import config from 'Heading.config'
 import styles from './Heading.css'
+
+console.log(Headings)
 
 const headingSizes = [
   1, 2, 3, 4, 5, 6,
@@ -31,7 +33,7 @@ const Heading = ({children, size, onChange, className, ...other}) => {
     [`${headingType}-wrapper`]: true,
   }
 
-  const classes = generateClassNames(
+  const classes = classNames(
     'heading', /* component name */
     styles.heading, /* localized styles */
     className, /* user specified classNames */

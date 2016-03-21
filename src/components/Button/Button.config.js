@@ -1,4 +1,2 @@
+export default null
 
-const config = null
-
-export default config

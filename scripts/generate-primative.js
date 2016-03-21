@@ -1,4 +1,4 @@
-const copy = require('copy-template-dir')
+const copyTemplate = require('copy-template-dir')
 const path = require('path')
 const fs = require('fs');
 const tagList = require('../src/tagList')
@@ -9,19 +9,27 @@ if (fs.existsSync(primativeDir)) {
   console.log('directory exists delete')
   deleteFolderRecursive(primativeDir)
 }
+var indexFile = ''
 
 for (var i = 0; i < tagList.length; i++) {
-  makePrimativeComponent(capitalize(tagList[i]))
+  var tagName = capitalize(tagList[i])
+  var lastItem = (tagList.length - 1) === i
+  // Build index.js for primatives
+  indexFile += "export " + tagName + " from './" + tagName + "'\n"
+  // indexFile += "export " + tagName + "Class from './" + tagName + "/" + tagName + ".class'\n"
+  //
+  makePrimativeComponent(tagName, lastItem)
+
 }
 
-function makePrimativeComponent(name){
-
+function makePrimativeComponent(name, runFinalCallback) {
   const vars = { name: name }
   const inDir = path.join(__dirname, `../src/templates/primativeComponent`)
   const outDir = path.join(__dirname, `../src/primatives/${name}`)
 
-  copy(inDir, outDir, vars, (err, createdFiles) => {
+  copyTemplate(inDir, outDir, vars, (err, createdFiles) => {
     if (err) throw err
+
     createdFiles.forEach(filePath => {
       console.log(`Created ${filePath}`)
       var newName = filePath.replace('ComponentName', name)
@@ -30,7 +38,21 @@ function makePrimativeComponent(name){
           console.log(`Created ${newName}`)
       });
     })
+
+    if (runFinalCallback) {
+      console.log('done run create index.js')
+      writeIndexFile()
+    }
+
   })
+}
+
+function writeIndexFile(){
+   fs.writeFile(primativeDir + '/index.js', indexFile, function (err) {
+     if (err) {
+       return console.log(err)
+     }
+   })
 }
 
 function capitalize (string) {

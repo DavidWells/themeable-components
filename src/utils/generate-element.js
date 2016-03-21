@@ -23,7 +23,7 @@ export default function makeComponent (element, props, config) {
   /* set className */
   const configClass = (config && config.props) ? config.props.className : null
 
-  let classes = ClassNames(
+  const classes = ClassNames(
     props.className, /* user specified classNames */
     configClass
   )
@@ -45,7 +45,6 @@ export default function makeComponent (element, props, config) {
     }
 
     if (props.debug) {
-
       var debugName = props.componentName || element.name || element
 
       showConfigOnDebug(debugName, COMPONENT_CONFIG_PATH, JSON.stringify(configuration, null, '\t'))
@@ -61,7 +60,7 @@ export default function makeComponent (element, props, config) {
     }
 
     /* check if react JSX */
-    if(typeof element === "object") {
+    if (typeof element === 'object') {
       children = element.props.children
       element = element.type
     }
@@ -74,7 +73,7 @@ export default function makeComponent (element, props, config) {
     console.log('no config return base Component')
     /* default: return element created with React.createComponent */
     /* check if react JSX */
-    if (typeof element === "object") {
+    if (typeof element === 'object') {
       children = element.props.children
       element = element.type
     }
@@ -99,10 +98,10 @@ function composeElementWithConfig (component, c) {
   /* if config outerWrapper, Wrap component */
   if (outerWrapper) {
     // console.log('outerWrapper triggered')
-    // console.log("outerWrapper.element", outerWrapper.element)
+    // console.log('outerWrapper.element', outerWrapper.element)
     // map plaintext primative to component primative
     // TODO
-    //var test = (outerWrapper.element === "div") ? Div : outerWrapper.element
+    // var test = (outerWrapper.element === 'div') ? Div : outerWrapper.element
     composedComponent = createElement(outerWrapper.element, outerWrapper.props, composedComponent)
   }
 
@@ -141,13 +140,13 @@ export function isObject (item) {
   return (item && typeof item === 'object' && !Array.isArray(item) && item !== null)
 }
 
-function showConfigOnDebug(attributeName, configPath, config) {
+function showConfigOnDebug (attributeName, configPath, config) {
   console.log('WARNING TRIGGERED')
   warning(
     false,
-    `The "%s" is being overriden from "%s"
+    `The '%s' is being overriden from '%s'
     using these configuration options:
-    "%s"`,
+    '%s'`,
     attributeName,
     configPath,
     config

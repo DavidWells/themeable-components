@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import ATag from '../../primatives/A'
-import ButtonPrimative from '../../primatives/Button'
+import A from '../../primatives/A'
+import _Button from '../../primatives/Button'
 import { ButtonClass } from '../../primatives/Button'
 import makeComponent from 'utils/generate-element'
-import composeClassName from 'utils/new-create-classnames'
+import classNames from 'utils/classNames'
 import style from 'Button.css'
 import config from 'Button.config'
 
@@ -27,7 +27,6 @@ class Button extends Component {
   }
   componentDidMount () {
     /* find node once */
-
     this.node = ReactDOM.findDOMNode(this)
   }
 
@@ -39,7 +38,6 @@ class Button extends Component {
   handleClick (event) {
     //this.refs.button.blur()
     this.node.blur()
-    console.log('clicke')
     if (this.props.onClick) this.props.onClick(event)
   }
 
@@ -47,21 +45,19 @@ class Button extends Component {
     console.log(this.refs)
     //this.refs.button.blur()
     this.node.blur()
-    console.log('mouseleabe')
     if (this.props.onMouseLeave) this.props.onMouseLeave(event)
   }
 
   render () {
     const { className, children, href, icon, inverse, label, ...others} = this.props
-    const element = (href) ? ATag : ButtonClass
+    const element = (href) ? A : _Button
     // console.log(this.props)
     // console.log(ButtonTag)
-    console.log('ButtonButton', ButtonClass)
 
     const propBasedClasses = {
       inverse: inverse
     }
-    const classes = composeClassName(
+    const classes = classNames(
       'button', /* component name */
       style.button, /* localized styles */
       className, /* user specified classNames */

@@ -2,23 +2,21 @@ import React, { PropTypes } from 'react'
 import Navigation from './Navigation'
 import TestComponent from '../src/components/TestComponent/TestComponent'
 import Button from '../src/components/Button'
-import P from '../src/primatives/P'
-import H2 from '../src/primatives/H2'
-import H1 from '../src/primatives/H1'
 import Heading from '../src/components/Heading'
 import Card from '../src/components/Card'
 import TagList from '../src/tagList'
 import style from './test.css'
 import makeReactElement from 'utils/generate-element'
-import Div from 'primatives/Div'
 import Span from '../src/primatives/Span'
-import ButtonTest from '../src/primatives/Button'
-import { AClass as A } from '../src/primatives/A'
+
 import Link from '../src/primatives/A'
 
-import Table from '../src/primatives/Table'
-import Tr from '../src/primatives/Tr'
-import Td from '../src/primatives/Td'
+import { Div, A, H1, H2, Table, Tbody, Tr, Td, P } from 'primatives'
+// import { Div, A, H1, H2, Table, Tbody, Tr, Td, P } from 'ui-base/primatives'
+
+// import Button from 'themeable/components/Button'
+
+import * as DOM from 'primatives'
 
 class Test extends React.Component {
   render () {
@@ -62,8 +60,9 @@ class App extends React.Component {
     var test = (this.state.h1Clicked) ? Test : null
     var renderTags = null;
     return (
-      <Div>
+      <DOM.Div>
           <Table>
+            <Tbody>
             <Tr>
               <Td>Jill</Td>
               <Td>SmiTh</Td>
@@ -74,11 +73,12 @@ class App extends React.Component {
               <Td>Jackson</Td>
               <Td>94</Td>
             </Tr>
+            </Tbody>
           </Table>
           <TestComponent>hey</TestComponent>
-          <A ref="yay" href="link">Tesxxxt</A>
+          <A href="http://www.google.com">Tesxxxt</A>
           <Link>hehehehe</Link>
-          <ButtonTest>butoon clicker</ButtonTest>
+          <Button onClick={(e)=>{alert('button cicjed')}} ref="button">butoon clicker</Button>
           <Div onClick={(e)=>{alert('chchch')}} className={true}>Testing div
           </Div>
           <Heading className="headinhhdh-one" size={1}>Heading 1</Heading>
@@ -86,12 +86,12 @@ class App extends React.Component {
           <H2>Heading 2 primative</H2>
           <Span>Testing span</Span>
           <H1>Test</H1>
-          <Button inverse={true}>button</Button>
-          <Card  className="hhhsnby dhhdhd sjjs">
+
+          <Card customComponent={A} className="hhhsnby dhhdhd sjjs">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae mauris arcu
           </Card>
 
-      </Div>
+      </DOM.Div>
     )
   }
 }

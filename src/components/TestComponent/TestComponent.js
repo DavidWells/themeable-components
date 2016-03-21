@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import Button from '../Button/Button'
-
+//import Button from '../Button/Button'
 
 class TestComponent extends Component {
   static propTypes = {
@@ -19,14 +18,16 @@ class TestComponent extends Component {
     super(props, context)
     this.node = null
   }
-  componentDidMount() {
+  componentDidMount () {
     console.log('REFS', this.refs.buttontest)
-    this.refs.buttontest.node.style.color = 'purple'
+    //this.refs.buttontest.node.style.color = 'purple'
   }
   render () {
     return (
       <div>
-        <Button ref="buttontest">{this.props.children}</Button>
+        <div ref="buttontest">
+          {this.props.children}
+        </div>
       </div>
     )
   }

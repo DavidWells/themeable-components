@@ -1,26 +1,25 @@
 import React, { propTypes } from 'react'
 import Div from 'primatives/Div'
 import makeComponent from 'utils/generate-element'
-import generateClassNames from 'utils/new-create-classnames'
+import classNames from 'utils/classNames'
 import styles from 'Card.css'
 import config from 'Card.config'
 
-const Card = ({children, className, customComponent, ...other}) => {
-  const name = 'card'
-  const classes = generateClassNames(
+const name = 'Card'
+const Card = ({children, className, ...other}) => {
+  /* generate classNames */
+  const classes = classNames(
     name, /* component name */
-    styles.card, /* localized styles */
-    className, /* user specified classNames */
+    styles[`${name}`] || styles[`${name.toLowerCase()}`], /* localized styles */
+    className /* user specified classNames */
   )
-
+  /* build props */
   const props = {
     ...other,
-    children: children,
+    children,
     className: classes,
-    customComponent: customComponent,
     componentName: name
   }
-
   return makeComponent(Div, props, config)
 }
 

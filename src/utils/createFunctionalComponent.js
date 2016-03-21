@@ -6,8 +6,10 @@ import React from 'react'
  */
 const createFunctionalComponent = function (tagName, config, debug) {
   const FunctionalComponent = ({children, customComponent, ...props}) => {
-    //const element = customComponent || tagName
-
+    // const element = customComponent || tagName
+    if (customComponent) {
+      // console.log(arguments)
+    }
     const element = customComponent || tagName.toLowerCase()
     var properties = { ...props }
 
@@ -20,6 +22,9 @@ const createFunctionalComponent = function (tagName, config, debug) {
       let name = `${tagName}.functional'`
       if (properties['data-react-component']) {
         name = properties['data-react-component']
+      }
+      if (customComponent) {
+        properties['data-component-override'] = customComponent.name
       }
       properties['data-react-component'] = name
     }
