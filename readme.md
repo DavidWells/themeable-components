@@ -5,6 +5,12 @@
 npm start
 ```
 
+Rename `.componentrc.json.example` to `.componentrc.json` and point to your component theme directory
+
+In a parent directory install https://github.com/DavidWells/component-themes and point `stylePath` in `.componentrc.json` to the correct folder.
+
+Then `npm start`
+
 # Goal
 Create reusable components to be used by all my projects. No more recreating the wheel
 

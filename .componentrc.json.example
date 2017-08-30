@@ -1,0 +1,9 @@
+{
+  "stylePath": "../component-themes/WordPress/",
+  "options": {
+    "localized": true,
+    "onlyLocalized": false,
+    "postfix": "postfix",
+    "prefix": "prefix"
+  }
+}
