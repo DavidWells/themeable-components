@@ -1,5 +1,9 @@
 # Components
 
+Magic using webpack alias for fully themable react components.
+
+## Usage
+
 1. Install deps
 
   ```
