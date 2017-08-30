@@ -8,6 +8,11 @@
 
 2. In a parent directory install https://github.com/DavidWells/component-themes and point `stylePath` in `.componentrc.json` to the correct folder.
 
+  ```bash
+  - /components
+  - /component-themes
+  ```
+
 3. Rename `.componentrc.json.example` to `.componentrc.json` and point to your component theme directory
 
 
