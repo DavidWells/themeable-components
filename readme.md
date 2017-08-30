@@ -30,6 +30,14 @@ Magic using webpack alias for fully themable react components.
 5. Swap out path in `stylePath` in `.componentrc.json` and see the different themes apply.
 
 
+## Theming
+
+See https://github.com/DavidWells/component-themes/tree/master/MaterialUI for an example theme.
+
+Basically if the .css file matching the component name exists it will override the default.
+
+If you set the Wordpress theme, https://github.com/DavidWells/component-themes/blob/master/WordPress/Button.css will be the CSS used with button component and the component will inherit the props passed in https://github.com/DavidWells/component-themes/blob/master/WordPress/Button.config.js#L5
+
 # Goal
 Create reusable components to be used by all my projects. No more recreating the wheel
 
