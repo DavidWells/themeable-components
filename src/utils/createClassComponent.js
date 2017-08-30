@@ -6,11 +6,12 @@ import React, { Component } from 'react'
  */
 function createClassComponent (n, config) {
   return class DOMClassPrimative extends Component {
+    static displayName = `${n}`;
+
     render () {
       const { customComponent, children } = this.props
       const element = customComponent || n.toLowerCase()
-
-      var properties = { ...this.props }
+      var props = { ...this.props }
 
       if (__DEV__) {
         /* if Dev mode on, show which component is doing the rendering */
@@ -18,10 +19,10 @@ function createClassComponent (n, config) {
         if (this.props['data-react-component']) {
           name = this.props['data-react-component']
         }
-        properties['data-react-component'] = name
+        props['data-react-component'] = name
       }
 
-      return React.createElement(element, properties, children)
+      return React.createElement(element, props, children)
     }
   }
 }

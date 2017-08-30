@@ -4,7 +4,7 @@ var path = require('path')
 var pkg = require('./package.json')
 var config = require('./.componentrc.json')
 var stylePath = config.stylePath
-var comonentConfigPath = path.resolve(stylePath);
+var comonentConfigPath = path.resolve(stylePath)
 var webpack = require('webpack')
 var playgroundPath = path.join(__dirname, 'playground')
 var srcPath = path.join(__dirname, 'src')
@@ -12,22 +12,20 @@ var DEBUG = true
 var aliases = {
   'config': './config',
   'utils': path.join(__dirname, '/src/utils'),
-  'primatives': path.join(__dirname, '/src/primatives'),
-  //'primatives/Div': path.join(__dirname, '/src/primatives/Span')
 }
 
-//var IllustrationPlugin = require('react-component-illustrator-webpack')
+// var IllustrationPlugin = require('react-component-illustrator-webpack')
 var CSS = {CustomCSSPath: 'custom'}
 
 var componentsList = fs.readdirSync('src/components/').filter(function (x) {
-  aliases[x + '.css'] = './'+x+'.css'
-  aliases[x + '.config'] = './'+x+'.config'
+  aliases[x + '.css'] = './' + x + '.css'
+  aliases[x + '.config'] = './' + x + '.config'
   return x !== '.DS_Store' && x !== 'index.js'
 })
 
 var cssOverride = fs.readdirSync(stylePath).filter(function (name) {
   /* TODO acctually resolve the correct path */
-  var FileName = name.substr(0, name.lastIndexOf('.')) || name;
+  var FileName = name.substr(0, name.lastIndexOf('.')) || name
   /* set alias override */
   if (name.match(/\.css/)) {
     var newCSSPath = path.resolve(stylePath) + '/' + name
@@ -37,7 +35,7 @@ var cssOverride = fs.readdirSync(stylePath).filter(function (name) {
 
   if (name.match(/\.js/)) {
     var newConfigPath = path.resolve(stylePath) + '/' + name
-    //var newConfigPath = path.resolve(stylePath) + '/atest.js'
+    // var newConfigPath = path.resolve(stylePath) + '/atest.js'
     aliases[FileName] = newConfigPath
     console.log('Notice: ' + name + ' is overriden by ' + newConfigPath)
   }
@@ -47,9 +45,8 @@ var cssOverride = fs.readdirSync(stylePath).filter(function (name) {
 
 console.log(aliases)
 console.log('new path', path.resolve(stylePath))
-console.log(path.resolve(__dirname, '..', 'Projects', 'component-themes', 'Demo'));
+console.log(path.resolve(__dirname, '..', 'Projects', 'component-themes', 'Demo'))
 module.exports = {
-
   devtool: 'inline-source-map',
 
   target: 'web',
@@ -58,7 +55,7 @@ module.exports = {
     'app': [
       'webpack-hot-middleware/client?http://localhost:7000',
       './playground/index.js'
-     ],
+    ],
   },
 
   output: {
@@ -69,10 +66,10 @@ module.exports = {
   },
 
   resolve: {
-    //root: path.resolve(__dirname),
+    // root: path.resolve(__dirname),
     root: [
-       path.resolve(__dirname),
-       //path.resolve(stylePath),
+      path.resolve(__dirname),
+    // path.resolve(stylePath),
     ],
     alias: aliases,
     extensions: ['', '.js', '.jsx']
@@ -112,11 +109,11 @@ module.exports = {
     require('postcss-import')({
       /* inject styles to webpack */
       addDependencyTo: webpack
-      /* Is equivalent to
-      onImport: function (files) {
-       files.forEach(this.addDependency)
-      }.bind(webpack)
-      */
+    /* Is equivalent to
+    onImport: function (files) {
+     files.forEach(this.addDependency)
+    }.bind(webpack)
+    */
     }),
     /* autoprefix for different browser vendors */
     require('autoprefixer'),
@@ -126,7 +123,7 @@ module.exports = {
         /* possible hot reloading https://github.com/postcss/postcss-simple-vars/issues/23#issuecomment-156815226 */
         var defaultVars = require('./src/css/variables')
         var mergeVars = merge_options(defaultVars, CSS)
-        //console.log(mergeVars)
+        // console.log(mergeVars)
         return mergeVars
       }
     }),
@@ -153,12 +150,12 @@ module.exports = {
     /* Better localization maybe n future https://github.com/outpunk/postcss-modules/
     require('postcss-modules')({
       getJSON: function(cssFileName, json) {
-        var path          = require('path');
-        var cssName       = path.basename(cssFileName, '.css');
-        var jsonFileName  = path.resolve('./build' + cssName + '.json');
-        fs.writeFileSync(jsonFileName, JSON.stringify(json));
+        var path          = require('path')
+        var cssName       = path.basename(cssFileName, '.css')
+        var jsonFileName  = path.resolve('./build' + cssName + '.json')
+        fs.writeFileSync(jsonFileName, JSON.stringify(json))
       }
-    });
+    })
     */
     /* This plugin makes sure we get warnings in the console */
     require('postcss-reporter')({
@@ -170,7 +167,7 @@ module.exports = {
 
 }
 
-function merge_options(obj1,obj2){
+function merge_options (obj1, obj2) {
   var obj3 = {}
   for (var attrname in obj1) {
     obj3[attrname] = obj1[attrname]
@@ -182,25 +179,25 @@ function merge_options(obj1,obj2){
 }
 
 function doSomethingWithList (mySelectorList, args) {
-  //console.log(mySelectorList)
+  // console.log(mySelectorList)
   // var dest = path.resolve(__dirname) + '/cssoutput/'
-  // var list = {};
+  // var list = {}
   // for (var i = 0; i < mySelectorList.length; i++) {
-  //     var icon = mySelectorList[i];
-  //     var name = icon.replace('.svg', '');
+  //     var icon = mySelectorList[i]
+  //     var name = icon.replace('.svg', '')
   //     list[name] = {
   //         filename: icon,
   //         //cdnLink: ""
-  //     };
+  //     }
   // }
 
-  // var iconExports = `module.exports = ` + JSON.stringify(list, null, 2);
+  // var iconExports = `module.exports = ` + JSON.stringify(list, null, 2)
 
   // fs.writeFile(dest + "selector-list.js", iconExports, function(err) {
   //     if(err) {
-  //         return console.log(err);
+  //         return console.log(err)
   //     }
-  // });
+  // })
 
   // ... do other things
 }

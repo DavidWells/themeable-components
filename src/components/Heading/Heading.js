@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import ContentEditable from 'react-contenteditable'
-import Div from 'primatives/Div'
+import Div from 'react-dom-primitives/Div'
 import * as Headings from './headingTypes'
 import makeComponent from 'utils/generate-element'
 import classNames from 'utils/classNames'
@@ -24,6 +24,7 @@ const defaultProps = {
 const name = 'Heading'
 
 const Heading = ({children, size, onChange, className, ...other}) => {
+  let renderChildren = children
   const headingType = (!isNaN(size)) ? `H${size}` : size.toUpperCase()
   const HeadingElement = Headings[`${headingType}`]
   const localizedCSS = styles[`${name}`] || styles[`${name.toLowerCase()}`]
@@ -37,7 +38,7 @@ const Heading = ({children, size, onChange, className, ...other}) => {
 
   if (onChange) {
     /* if change handler allow content editable */
-    children = (
+    renderChildren = (
       <ContentEditable
         heading='span'
         html={children} // innerHTML of the editable div
@@ -56,7 +57,7 @@ const Heading = ({children, size, onChange, className, ...other}) => {
   const renderer = (
     <Div {...props} className={classes}>
       <HeadingElement>
-        {children}
+        {renderChildren}
       </HeadingElement>
     </Div>
   )

@@ -1,8 +1,8 @@
 import React, { createElement } from 'react'
 import mergeDeep from './merge-deep'
 import ClassNames from 'classnames'
-import warning from 'utils/warning'
-import Span from '../primatives/Span'
+import warning from './warning'
+import Span from 'react-dom-primitives/Span'
 /**
  * Generate React Element from Tag. Wrapper for React.createElement
  * @param  {string} element  [description]

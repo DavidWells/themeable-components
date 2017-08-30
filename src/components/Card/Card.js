@@ -1,7 +1,7 @@
 import React, { propTypes } from 'react'
-import Div from 'primatives/Div'
-import makeComponent from 'utils/generate-element'
-import classNames from 'utils/classNames'
+import Div from 'react-dom-primitives/Div'
+import makeComponent from '../../utils/generate-element'
+import classNames from '../../utils/classNames'
 import styles from 'Card.css'
 import config from 'Card.config'
 

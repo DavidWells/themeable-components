@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
-import APrimative from '../../primatives/A'
-import ButtonPrimative from '../../primatives/Button'
-import makeComponent from 'utils/generate-element'
-import classNames from 'utils/classNames'
+import APrimative from 'react-dom-primitives/A'
+import ButtonPrimative from 'react-dom-primitives/Button'
+import makeComponent from '../../utils/generate-element'
+import classNames from '../../utils/classNames'
 import styles from 'Button.css'
 import config from 'Button.config'
 

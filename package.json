@@ -9,7 +9,9 @@
   },
   "author": "David Wells",
   "dependencies": {
-    "react-contenteditable": "^1.1.0"
+    "classnames": "^2.2.5",
+    "react-contenteditable": "^1.1.0",
+    "react-dom-primitives": "0.0.2"
   },
   "peerDependencies": {
     "classnames": "^2.2.0",
