@@ -1,15 +1,25 @@
 # Components
 
-```bash
-# run
-npm start
-```
+1. Install deps
 
-Rename `.componentrc.json.example` to `.componentrc.json` and point to your component theme directory
+  ```
+  npm install
+  ```
 
-In a parent directory install https://github.com/DavidWells/component-themes and point `stylePath` in `.componentrc.json` to the correct folder.
+2. In a parent directory install https://github.com/DavidWells/component-themes and point `stylePath` in `.componentrc.json` to the correct folder.
 
-Then `npm start`
+3. Rename `.componentrc.json.example` to `.componentrc.json` and point to your component theme directory
+
+
+4. Run the playground
+
+  ```bash
+  # run
+  npm start
+  ```
+
+5. Swap out path in `stylePath` in `.componentrc.json` and see the different themes apply.
+
 
 # Goal
 Create reusable components to be used by all my projects. No more recreating the wheel
